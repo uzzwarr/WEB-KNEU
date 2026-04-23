@@ -136,7 +136,7 @@ IHW/
 Clone the repository and open any `index.html` in your browser:
 
 ```bash
-git clone https://github.com/<your-username>/Web-KNEU.git
+git clone https://github.com/<your-uzzwarr>/Web-KNEU.git
 cd Web-KNEU
 ```
 
