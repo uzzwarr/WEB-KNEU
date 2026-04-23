@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SadSvit & СТРУКТУРА ЩАСТЯ - Силуети - VinilSpot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="spotify-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-logo"><a href="index.html"> VinilLagann</a></div>
+                <ul>
+                    <li><a href="index.html"> Головна</a></li>
+                    <li><a href="cart.html"> Ваш Кошик</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-nav" style="margin-top: 20px;">
+                <label for="page-select" style="color: var(--spotify-gray-text); font-size: 0.9rem;">Швидкий перехід :</label>
+                
+                <select id="page-select" style="width: 100%; background-color: var(--spotify-gray-light); color: var(--spotify-white); border: 1px solid var(--spotify-gray-text); padding: 8px; margin-top: 8px; border-radius: 4px;">
+                    <option value="">Оберіть сторінку...</option>
+                    <option value="index.html">Головна</option>
+                    <option value="cart.html">Кошик</option>
+                    <option value="product-1.html">Kenshi Yonezu - Kick Back</option>
+                    <option value="product-2.html">Tame Impala - Dracula</option>
+                    <option value="product-3.html">Kenshi Yonezu - Iris out</option>
+                    <option value="product-4.html">Green Day - Boulevard...</option>
+                    <option value="product-5.html">SadSvit - Силуети</option>
+                    <option value="product-6.html">Franz Ferdinand - Take Me Out</option>
+                </select>
+            </div>
+            </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-user">
+                    <div class="lang-switcher">
+                        <a href="product-5.html" class="active">UA</a> | <a href="product-5-en.html">EN</a>
+                    </div>
+                    <a href="cart.html" class="cart-button-mobile">🛒</a>
+                </div>
+            </header>
+            <section class="product-page">
+                <div class="product-image">
+                    <img src="img/SadSvit.jpg" alt="Обкладинка SadSvit & СТРУКТУРА ЩАСТЯ - Силуети">
+                </div>
+                <div class="product-details" data-id="5" data-title="SadSvit & СТРУКТУРА ЩАСТЯ - Силуети" data-price="1000" data-img="img/SadSvit.jpg">
+                    <p>Сингл на вінілі</p>
+                    <h1>Силуети</h1>
+                    <h2>SadSvit & СТРУКТУРА ЩАСТЯ</h2>
+                    <div class="product-price">1000 ₴</div>
+                    <button class="add-to-cart-btn large-btn">Додати в кошик</button>
+                    
+                    <div class="audio-player" style="margin-top: 20px;">
+                        <p><strong>Прослухати:</strong></p>
+                        <audio controls src="audio/Силуети - SadSvit.mp3" style="width: 100%;">
+                            Ваш браузер не підтримує аудіо.
+                        </audio>
+                    </div>
+
+                    <div class="product-description" style="margin-top: 20px;">
+                        <p>Пориньте в атмосферу українського пост-панку. "Силуети" — це спільний меланхолійний хіт від SadSvit та СТРУКТУРА ЩАСТЯ, що став саундтреком для багатьох. Холодний синтезаторний звук, глибокий вокал та фірмова "думерська" естетика створюють унікальний настрій, який вініл лише підкреслює, додаючи звучанню об'єму. Цей сингл — ідеальне доповнення до колекції сучасної української "нової хвилі".</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="playlist-section" style="padding: 32px;">
+                <h2>Галерея </h2>
+                
+                <div id="radio-gallery-container">
+                    <div class="radio-group" style="margin-bottom: 20px;">
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Kick-Back.jpg"> Kenshi Yonezu - Kick Back</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Dracula.jpg"> Tame Impala - Dracula</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/GreenDay.jpg"> Green Day - Boulevard...</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/SadSvit.jpg"> SadSvit - Силуети</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Franz_Ferdinand_-_Take_Me_Out.jpg"> Franz Ferdinand</label>
+                        
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="none" checked> Сховати</label>
+                    </div>
+            
+                    <div id="image-display-area">
+                        <h3>Зменшена (100x100):</h3>
+                        <img id="gallery-image-small" src="" alt="Зменшена копія" style="display: none;" height="100" width="100">
+                        <h3 style="margin-top: 20px;">Оригінал (max-width 300px):</h3>
+                        <img id="gallery-image-main" src="" alt="Обране зображення" style="display: none; max-width: 300px;">
+                        <h3 style="margin-top: 20px;">Збільшена (400x400):</h3>
+                        <img id="gallery-image-large" src="" alt="Збільшена копія" style="display: none;" height="400" width="400">
+                    </div>
+                </div>
+            </section>
+            </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>і

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитування - VinilLagann</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="spotify-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-logo">
+                    <a href="index.html">🎵 VinilLagann</a>
+                </div>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="cart.html">Кошик</a></li>
+                    <li><a href="survey.html" class="active">Опитування</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-nav" style="margin-top: 20px;">
+                <label for="page-select" style="color: var(--spotify-gray-text); font-size: 0.9rem;">Швидкий перехід:</label>
+                
+                <select id="page-select" style="width: 100%; background-color: var(--spotify-gray-light); color: var(--spotify-white); border: 1px solid var(--spotify-gray-text); padding: 8px; margin-top: 8px; border-radius: 4px;">
+                    <option value="">Оберіть сторінку...</option>
+                    <option value="index.html">Головна</option>
+                    <option value="cart.html">Кошик</option>
+                    <option value="survey.html">Опитування</option>
+                    <option value="product-1.html">Kenshi Yonezu - Kick Back</option>
+                    <option value="product-2.html">Tame Impala - Dracula</option>
+                    <option value="product-3.html">Kenshi Yonezu - Iris out</option>
+                    <option value="product-4.html">Green Day - Boulevard...</option>
+                    <option value="product-5.html">SadSvit - Силуети</option>
+                    <option value="product-6.html">Franz Ferdinand - Take Me Out</option>
+                </select>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-user">
+                    <div class="lang-switcher">
+                        <a href="survey.html" class="active">UA</a> | 
+                        <a href="en.html">EN</a>
+                    </div>
+                    <a href="cart.html" class="cart-button-mobile">🛒</a>
+                </div>
+            </header>
+
+            <div style="padding: 32px;">
+                <!-- ФОРМА 1: Опитування відвідувачів -->
+                <div class="form-section">
+                    <div class="form-container">
+                        <h2>📋 Опитування відвідувачів</h2>
+                        <p style="color: var(--spotify-gray-text); margin-bottom: 24px;">
+                            Допоможіть нам покращити наш асортимент вінілових платівок! Поділіться своїми музичними уподобаннями.
+                        </p>
+                        
+                        <form id="survey-form">
+                            <!-- Ім'я -->
+                            <div class="form-group">
+                                <label for="name">Ваше ім'я *</label>
+                                <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я">
+                                <span class="error" id="name-error">Будь ласка, введіть ім'я (мінімум 2 символи)</span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="example@mail.com">
+                                <span class="error" id="email-error">Будь ласка, введіть коректну email адресу</span>
+                            </div>
+
+                            <!-- Radio: Як часто купуєте вініл? -->
+                            <div class="form-group">
+                                <label>Як часто ви купуєте вінілові платівки? *</label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" name="frequency" value="weekly">
+                                        Щотижня
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="frequency" value="monthly">
+                                        Щомісяця
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="frequency" value="rarely">
+                                        Рідко
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="frequency" value="first-time">
+                                        Це моя перша покупка
+                                    </label>
+                                </div>
+                                <span class="error" id="frequency-error">Будь ласка, оберіть варіант</span>
+                            </div>
+
+                            <!-- Checkbox: Улюблені жанри -->
+                            <div class="form-group">
+                                <label>Які жанри музики вам подобаються? * (оберіть хоча б один)</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="genres" value="rock">
+                                        Рок
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="genres" value="pop">
+                                        Поп
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="genres" value="indie">
+                                        Інді
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="genres" value="electronic">
+                                        Електронна музика
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="genres" value="jazz">
+                                        Джаз
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="genres" value="ukrainian">
+                                        Українська музика
+                                    </label>
+                                </div>
+                                <span class="error" id="genres-error">Оберіть хоча б один жанр</span>
+                            </div>
+
+                            <!-- Textarea: Коментарі -->
+                            <div class="form-group">
+                                <label for="comments">Що б ви хотіли бачити в нашому асортименті? *</label>
+                                <textarea id="comments" name="comments" placeholder="Поділіться своїми побажаннями та ідеями..." rows="5"></textarea>
+                                <span class="error" id="comments-error">Будь ласка, напишіть ваші побажання (мінімум 10 символів)</span>
+                            </div>
+
+                            <!-- Кнопки -->
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Відправити відповіді</button>
+                                <button type="button" id="reset-btn" class="btn btn-secondary">Очистити форму</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ФОРМА 2: Результати та зворотній зв'язок -->
+                <div class="form-section" style="margin-top: 48px;">
+                    <div class="form-container">
+                        <h2>📧 Відправити результати на email</h2>
+                        
+                        <div id="success-message" class="success-message">
+                            ✓ Дякуємо за ваші відповіді! Результати опитування відображено нижче. Ви можете відправити їх на email.
+                        </div>
+                        
+                        <form id="feedback-form">
+                            <!-- Результати опитування -->
+                            <div class="form-group">
+                                <label for="result-display">Результати вашого опитування:</label>
+                                <textarea id="result-display" readonly rows="12">Тут з'являться результати після заповнення опитування...</textarea>
+                            </div>
+
+                            <!-- Кнопка відправлення листа -->
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">📮 Відправити на email</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/survey.js"></script>
+</body>
+</html>

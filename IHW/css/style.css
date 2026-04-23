@@ -1,0 +1,744 @@
+/* :root - Змінні для кольорів у стилі Spotify */
+:root {
+    --spotify-black: #121212;
+    --spotify-gray-dark: #181818;
+    --spotify-gray-light: #282828;
+    --spotify-gray-text: #b3b3b3;
+    --spotify-white: #ffffff;
+    --spotify-green: #1DB954;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--spotify-black);
+    color: var(--spotify-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------
+   МАКЕТ (LAYOUT)
+------------------------- */
+.spotify-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* 250px для бічної панелі, решта для контенту */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: #000;
+    padding: 24px;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.sidebar-logo a {
+    color: var(--spotify-white);
+    text-decoration: none;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    color: var(--spotify-gray-text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+    color: var(--spotify-white);
+}
+
+.main-content {
+    background: linear-gradient(to bottom, var(--spotify-gray-light) 0%, var(--spotify-black) 250px);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.lang-switcher a {
+    color: var(--spotify-gray-text);
+    text-decoration: none;
+    font-weight: 700;
+}
+.lang-switcher a.active {
+    color: var(--spotify-white);
+}
+.cart-button-mobile {
+    display: none; /* Сховано на десктопі */
+    font-size: 1.5rem;
+    color: var(--spotify-white);
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* -------------------------
+   ГОЛОВНА СТОРІНКА
+------------------------- */
+.quote-section {
+    padding: 20px 32px;
+    text-align: center;
+    min-height: 40px; /* Запобігає "стрибкам" контенту при зміні цитати */
+}
+#dynamic-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--spotify-gray-text);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.playlist-section {
+    padding: 0 32px 32px 32px;
+}
+
+.playlist-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.album-card {
+    background-color: var(--spotify-gray-dark);
+    border-radius: 8px;
+    padding: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.album-card:hover {
+    background-color: var(--spotify-gray-light);
+}
+
+.album-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.album-card img {
+    width: 100%;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.album-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-card p {
+    font-size: 0.9rem;
+    color: var(--spotify-gray-text);
+    margin: 0 0 16px 0;
+}
+
+.audio-player audio {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+    font-weight: 700;
+    border: none;
+    border-radius: 500px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+.add-to-cart-btn.large-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    width: auto;
+}
+
+/* -------------------------
+   СТОРІНКА ПРОДУКТУ
+------------------------- */
+.product-page {
+    display: flex;
+    padding: 32px;
+    gap: 32px;
+}
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    min-width: 250px;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+}
+.product-details {
+    flex: 1;
+}
+.product-details h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+.product-details h2 {
+    font-size: 1.5rem;
+    color: var(--spotify-gray-text);
+    margin: 5px 0 20px 0;
+}
+.product-price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.track-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+.track-list li {
+    padding: 5px 0;
+    color: var(--spotify-gray-text);
+}
+
+/* -------------------------
+   СТОРІНКА КОШИКА
+------------------------- */
+.cart-section {
+    padding: 32px;
+}
+.cart-section h1 {
+    font-size: 2.5rem;
+}
+.cart-container {
+    display: flex;
+    gap: 32px;
+}
+.cart-items {
+    flex: 2;
+}
+.cart-summary {
+    flex: 1;
+    background-color: var(--spotify-gray-dark);
+    padding: 24px;
+    border-radius: 8px;
+    height: fit-content;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--spotify-gray-light);
+}
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.item-details {
+    flex: 1;
+}
+.item-details h3 { margin: 0 0 5px 0; }
+.item-details p { margin: 0; color: var(--spotify-gray-text); }
+.item-quantity input {
+    width: 50px;
+    padding: 5px;
+    background-color: var(--spotify-gray-light);
+    border: 1px solid var(--spotify-gray-text);
+    color: var(--spotify-white);
+    border-radius: 4px;
+    text-align: center;
+}
+.item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    min-width: 80px;
+    text-align: right;
+}
+.item-remove {
+    background: none;
+    border: none;
+    color: var(--spotify-gray-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.item-remove:hover {
+    color: var(--spotify-white);
+}
+
+.cart-summary h2 {
+    margin-top: 0;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+.summary-row.total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--spotify-gray-text);
+}
+
+/* -------------------------
+   АДАПТИВНІСТЬ (MOBILE)
+------------------------- */
+@media (max-width: 768px) {
+    .spotify-layout {
+        grid-template-columns: 1fr; /* 1 колонка */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        /* Ховаємо бічну панель на мобільних */
+        display: none; 
+        /* Як варіант: можна зробити її горизонтальною внизу:
+           position: fixed;
+           bottom: 0;
+           width: 100%;
+           height: 60px;
+           z-index: 100;
+           flex-direction: row;
+           justify-content: space-around;
+           padding: 0;
+        */
+    }
+
+    .main-content {
+        height: auto;
+        background: var(--spotify-black); /* Спрощуємо фон */
+        padding-bottom: 80px; /* Додаємо відступ знизу */
+    }
+
+    .main-header {
+        padding: 16px;
+    }
+
+    .cart-button-mobile {
+        display: block; /* Показуємо іконку кошика в хедері */
+    }
+
+    .playlist-section {
+        padding: 0 16px 16px 16px;
+    }
+    .playlist-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .album-grid {
+        /* 2 колонки на мобільному */
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .album-card h3 { font-size: 0.9rem; }
+    .album-card p { font-size: 0.8rem; }
+    .add-to-cart-btn { font-size: 0.8rem; padding: 8px; }
+
+    .product-page {
+        flex-direction: column;
+        padding: 16px;
+    }
+    .product-details h1 { font-size: 2rem; }
+
+    .cart-container {
+        flex-direction: column;
+    }
+}
+.form-section {
+    margin-bottom: 48px;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: var(--spotify-gray-dark);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: var(--spotify-white);
+}
+
+/* Групи полів форми */
+.form-group {
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--spotify-white);
+    font-size: 1rem;
+}
+
+/* Текстові поля */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--spotify-gray-light);
+    border: 2px solid var(--spotify-gray-light);
+    border-radius: 4px;
+    color: var(--spotify-white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--spotify-green);
+    background-color: var(--spotify-gray-dark);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+}
+
+/* Read-only textarea для результатів */
+.form-group textarea[readonly] {
+    background-color: var(--spotify-gray-light);
+    cursor: default;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    transition: background-color 0.5s ease;
+}
+
+/* Radio та Checkbox групи */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: var(--spotify-gray-text);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+    background-color: var(--spotify-gray-light);
+    color: var(--spotify-white);
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--spotify-green);
+}
+
+/* Кнопки */
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 500px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+}
+
+.btn-primary:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--spotify-white);
+    border: 2px solid var(--spotify-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--spotify-white);
+    color: var(--spotify-black);
+    transform: scale(1.05);
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* Повідомлення про помилки */
+.error {
+    color: #ff4444;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+}
+
+.form-group.has-error .error {
+    display: block;
+    animation: shake 0.4s ease;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.05);
+}
+
+.form-group.has-error .radio-group,
+.form-group.has-error .checkbox-group {
+    border: 2px solid #ff4444;
+    background-color: rgba(255, 68, 68, 0.05);
+}
+
+/* Анімація тремтіння для помилок */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Повідомлення про успіх */
+.success-message {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: none;
+    font-weight: 600;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        margin: 0 16px;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 24px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 8px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        font-size: 16px; /* Запобігає зуму на iOS */
+    }
+}
+
+/* Фокус-стилі для доступності */
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--spotify-green);
+    outline-offset: 2px;
+}
+
+/* Стилі для placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: var(--spotify-gray-text);
+    opacity: 0.7;
+}
+/* --- COOKIE BANNER & THEME SELECTOR --- */
+.cookie-banner {
+    position: fixed;
+    bottom: -150px; /* Сховано */
+    left: 0;
+    width: 100%;
+    background-color: rgba(24, 24, 24, 0.95); /* Напівпрозорий фон */
+    border-top: 2px solid var(--spotify-green); /* Ця лінія теж буде змінювати колір! */
+    padding: 20px;
+    z-index: 9999;
+    transition: bottom 0.5s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+
+.cookie-banner.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cookie-text h3 {
+    margin: 0 0 5px 0;
+    color: var(--spotify-white);
+}
+
+.cookie-text p {
+    margin: 0;
+    color: var(--spotify-gray-text);
+    font-size: 0.9rem;
+}
+
+/* Стилі для кнопок вибору кольору */
+.theme-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 16px;
+    border-radius: 50px;
+}
+
+.theme-selector span {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.color-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Кольори кнопок */
+.color-btn.green { background-color: #1DB954; }
+.color-btn.purple { background-color: #8e44ad; }
+.color-btn.blue { background-color: #3498db; }
+.color-btn.orange { background-color: #e67e22; }
+
+/* Активна кнопка (обраний колір) */
+.color-btn.active {
+    border-color: white;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
