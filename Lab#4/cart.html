@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш Кошик - VinilLagann</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="spotify-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-logo">
+                    <a href="index.html">VinilLagann</a>
+                </div>
+                <ul>
+                    <li><a href="index.html"> Головна</a></li>
+                    <li><a href="cart.html" class="active"> Ваш Кошик</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-user">
+                    <div class="lang-switcher">
+                        <a href="cart.html" class="active">UA</a> | 
+                        <a href="cart-en.html">EN</a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="cart-section">
+                <h1>Ваш Кошик</h1>
+                <div class="cart-container">
+                    
+                    <div class="cart-items" id="cart-items-list">
+                        </div>
+                    
+                    <div class="cart-summary">
+                        <h2>Підсумок замовлення</h2>
+                        <div class="summary-row">
+                            <span>Проміжний підсумок:</span>
+                            <span id="cart-subtotal">0.00 ₴</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Доставка:</span>
+                            <span>0.00 ₴</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Всього до сплати:</span>
+                            <span id="cart-total">0.00 ₴</span>
+                        </div>
+                        <button class="add-to-cart-btn large-btn" style="width: 100%; margin-top: 10px;">
+                            Оформити замовлення
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/cart.js"></script>
+</body>
+</html>

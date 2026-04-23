@@ -1,0 +1,395 @@
+/* :root - Змінні для кольорів у стилі Spotify */
+:root {
+    --spotify-black: #121212;
+    --spotify-gray-dark: #181818;
+    --spotify-gray-light: #282828;
+    --spotify-gray-text: #b3b3b3;
+    --spotify-white: #ffffff;
+    --spotify-green: #1DB954;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--spotify-black);
+    color: var(--spotify-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------
+   МАКЕТ (LAYOUT)
+------------------------- */
+.spotify-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* 250px для бічної панелі, решта для контенту */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: #000;
+    padding: 24px;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.sidebar-logo a {
+    color: var(--spotify-white);
+    text-decoration: none;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    color: var(--spotify-gray-text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+    color: var(--spotify-white);
+}
+
+.main-content {
+    background: linear-gradient(to bottom, var(--spotify-gray-light) 0%, var(--spotify-black) 250px);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.lang-switcher a {
+    color: var(--spotify-gray-text);
+    text-decoration: none;
+    font-weight: 700;
+}
+.lang-switcher a.active {
+    color: var(--spotify-white);
+}
+.cart-button-mobile {
+    display: none; /* Сховано на десктопі */
+    font-size: 1.5rem;
+    color: var(--spotify-white);
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* -------------------------
+   ГОЛОВНА СТОРІНКА
+------------------------- */
+.quote-section {
+    padding: 20px 32px;
+    text-align: center;
+    min-height: 40px; /* Запобігає "стрибкам" контенту при зміні цитати */
+}
+#dynamic-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--spotify-gray-text);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.playlist-section {
+    padding: 0 32px 32px 32px;
+}
+
+.playlist-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.album-card {
+    background-color: var(--spotify-gray-dark);
+    border-radius: 8px;
+    padding: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.album-card:hover {
+    background-color: var(--spotify-gray-light);
+}
+
+.album-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.album-card img {
+    width: 100%;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.album-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-card p {
+    font-size: 0.9rem;
+    color: var(--spotify-gray-text);
+    margin: 0 0 16px 0;
+}
+
+.audio-player audio {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+    font-weight: 700;
+    border: none;
+    border-radius: 500px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+.add-to-cart-btn.large-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    width: auto;
+}
+
+/* -------------------------
+   СТОРІНКА ПРОДУКТУ
+------------------------- */
+.product-page {
+    display: flex;
+    padding: 32px;
+    gap: 32px;
+}
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    min-width: 250px;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+}
+.product-details {
+    flex: 1;
+}
+.product-details h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+.product-details h2 {
+    font-size: 1.5rem;
+    color: var(--spotify-gray-text);
+    margin: 5px 0 20px 0;
+}
+.product-price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.track-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+.track-list li {
+    padding: 5px 0;
+    color: var(--spotify-gray-text);
+}
+
+/* -------------------------
+   СТОРІНКА КОШИКА
+------------------------- */
+.cart-section {
+    padding: 32px;
+}
+.cart-section h1 {
+    font-size: 2.5rem;
+}
+.cart-container {
+    display: flex;
+    gap: 32px;
+}
+.cart-items {
+    flex: 2;
+}
+.cart-summary {
+    flex: 1;
+    background-color: var(--spotify-gray-dark);
+    padding: 24px;
+    border-radius: 8px;
+    height: fit-content;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--spotify-gray-light);
+}
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.item-details {
+    flex: 1;
+}
+.item-details h3 { margin: 0 0 5px 0; }
+.item-details p { margin: 0; color: var(--spotify-gray-text); }
+.item-quantity input {
+    width: 50px;
+    padding: 5px;
+    background-color: var(--spotify-gray-light);
+    border: 1px solid var(--spotify-gray-text);
+    color: var(--spotify-white);
+    border-radius: 4px;
+    text-align: center;
+}
+.item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    min-width: 80px;
+    text-align: right;
+}
+.item-remove {
+    background: none;
+    border: none;
+    color: var(--spotify-gray-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.item-remove:hover {
+    color: var(--spotify-white);
+}
+
+.cart-summary h2 {
+    margin-top: 0;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+.summary-row.total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--spotify-gray-text);
+}
+
+/* -------------------------
+   АДАПТИВНІСТЬ (MOBILE)
+------------------------- */
+@media (max-width: 768px) {
+    .spotify-layout {
+        grid-template-columns: 1fr; /* 1 колонка */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        /* Ховаємо бічну панель на мобільних */
+        display: none; 
+        /* Як варіант: можна зробити її горизонтальною внизу:
+           position: fixed;
+           bottom: 0;
+           width: 100%;
+           height: 60px;
+           z-index: 100;
+           flex-direction: row;
+           justify-content: space-around;
+           padding: 0;
+        */
+    }
+
+    .main-content {
+        height: auto;
+        background: var(--spotify-black); /* Спрощуємо фон */
+        padding-bottom: 80px; /* Додаємо відступ знизу */
+    }
+
+    .main-header {
+        padding: 16px;
+    }
+
+    .cart-button-mobile {
+        display: block; /* Показуємо іконку кошика в хедері */
+    }
+
+    .playlist-section {
+        padding: 0 16px 16px 16px;
+    }
+    .playlist-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .album-grid {
+        /* 2 колонки на мобільному */
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .album-card h3 { font-size: 0.9rem; }
+    .album-card p { font-size: 0.8rem; }
+    .add-to-cart-btn { font-size: 0.8rem; padding: 8px; }
+
+    .product-page {
+        flex-direction: column;
+        padding: 16px;
+    }
+    .product-details h1 { font-size: 2rem; }
+
+    .cart-container {
+        flex-direction: column;
+    }
+}

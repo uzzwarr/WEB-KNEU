@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinilLagann - Ваша музика на вінілі</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="spotify-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-logo">
+                    <a href="index.html">🎵 VinilLagann</a>
+                </div>
+                <ul>
+                    <li><a href="index.html" class="active">Головна</a></li>
+                    <li><a href="cart.html">Кошик</a></li>
+                    <li><a href="survey.html">Опитування</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-nav" style="margin-top: 20px;">
+                <label for="page-select" style="color: var(--spotify-gray-text); font-size: 0.9rem;">Швидкий перехід:</label>
+                
+                <select id="page-select" style="width: 100%; background-color: var(--spotify-gray-light); color: var(--spotify-white); border: 1px solid var(--spotify-gray-text); padding: 8px; margin-top: 8px; border-radius: 4px;">
+                    <option value="">Оберіть сторінку...</option>
+                    <option value="index.html">Головна</option>
+                    <option value="cart.html">Кошик</option>
+                    <option value="survey.html">Опитування</option>
+                    <option value="product-1.html">Kenshi Yonezu - Kick Back</option>
+                    <option value="product-2.html">Tame Impala - Dracula</option>
+                    <option value="product-3.html">Kenshi Yonezu - Iris out</option>
+                    <option value="product-4.html">Green Day - Boulevard...</option>
+                    <option value="product-5.html">SadSvit - Силуети</option>
+                    <option value="product-6.html">Franz Ferdinand - Take Me Out</option>
+                </select>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-nav">
+                </div>
+                <div class="header-user">
+                    <div class="lang-switcher">
+                        <a href="index.html" class="active">UA</a> | 
+                        <a href="en.html">EN</a>
+                    </div>
+                    <a href="cart.html" class="cart-button-mobile">🛒</a>
+                </div>
+            </header>
+
+            <section class="quote-section">
+                <p id="dynamic-quote"></p>
+            </section>
+
+            <section class="playlist-section">
+                <h2>Доброго дня</h2>
+                <div class="album-grid">
+                    <div class="album-card" data-id="1" data-title="Kenshi Yonezu - Kick Back" data-price="1100" data-img="img/Kick-Back.jpg">
+                        <a href="product-1.html">
+                            <img src="img/Kick-Back.jpg" alt="Обкладинка 1 Пісні">
+                        </a>
+                        <h3>Kick Back</h3>
+                        <p>Kenshi Yonezu</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/KICK BACK - Kenshi Yonezu.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1100 ₴)</button>
+                    </div>
+
+                    <div class="album-card" data-id="2" data-title="Tame Impala - Dracula" data-price="1500" data-img="img/Dracula.jpg">
+                        <a href="product-2.html">
+                            <img src="img/Dracula.jpg" alt="Обкладинка 2 Пісні">
+                        </a>
+                        <h3>Dracula</h3>
+                        <p>Tame Impala</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/Dracula - Tame Impala.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1500 ₴)</button>
+                    </div>
+
+                    <div class="album-card" data-id="3" data-title="Kenshi Yonezu - Iris out" data-price="1800" data-img="img/IrisOut.jpg">
+                        <a href="product-3.html">
+                            <img src="img/IrisOut.jpg" alt="Обкладинка 3 Пісні">
+                        </a>
+                        <h3>Iris out</h3>
+                        <p>Kenshi Yonezu</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/Iris out - Kenshi Yonezu.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1800 ₴)</button>
+                    </div>
+                    
+                    <div class="album-card" data-id="4" data-title="Green Day - Boulevard of broken dreams" data-price="1200" data-img="img/GreenDay.jpg">
+                        <a href="product-4.html">
+                            <img src="img/GreenDay.jpg" alt="Обкладинка 4 Пісні">
+                        </a>
+                        <h3>Boulevard of broken dreams</h3>
+                        <p>Green Day</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/Boulevard of broken dreams - Green Day.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1200 ₴)</button>
+                    </div>
+
+                    <div class="album-card" data-id="5" data-title="SadSvit & СТРУКТУРА ЩАСТЯ - Силуети" data-price="1000" data-img="img/SadSvit.jpg">
+                        <a href="product-5.html">
+                            <img src="img/SadSvit.jpg" alt="Обкладинка 5 Пісні">
+                        </a>
+                        <h3>Силуети</h3>
+                        <p>SadSvit & СТРУКТУРА ЩАСТЯ</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/Силуети - SadSvit.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1000 ₴)</button>
+                    </div>
+
+                    <div class="album-card" data-id="6" data-title="Take Me Out - Franz Ferdinand" data-price="1200" data-img="img/Franz_Ferdinand_-_Take_Me_Out.jpg">
+                        <a href="product-6.html">
+                            <img src="img/Franz_Ferdinand_-_Take_Me_Out.jpg" alt="Обкладинка 6 Пісні">
+                        </a>
+                        <h3>Take Me Out</h3>
+                        <p>Franz Ferdinand</p>
+                        <div class="audio-player">
+                            <audio controls src="audio/Take Me Out - Franz Ferdinand.mp3">
+                                Ваш браузер не підтримує аудіо.
+                            </audio>
+                        </div>
+                        <button class="add-to-cart-btn">Додати в кошик (1200 ₴)</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="playlist-section" style="padding: 0 32px 32px 32px;">
+                <h2>Галерея (Завдання 3)</h2>
+                
+                <div id="radio-gallery-container">
+                    <div class="radio-group" style="margin-bottom: 10px;">
+                        <strong>1. Оберіть зображення:</strong><br>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Kick-Back.jpg"> Kenshi Yonezu - Kick Back</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Dracula.jpg"> Tame Impala - Dracula</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/GreenDay.jpg"> Green Day - Boulevard...</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/SadSvit.jpg"> SadSvit - Силуети</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="img/Franz_Ferdinand_-_Take_Me_Out.jpg"> Franz Ferdinand</label>
+                        
+                        <label style="margin-right: 15px;"><input type="radio" name="image-choice" value="none" checked> Сховати</label>
+                    </div>
+
+                    <div class="radio-group" style="margin-bottom: 20px;">
+                        <strong>2. Оберіть розмір:</strong><br>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-size" value="small"> Зменшена (100x100)</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-size" value="original" checked> Оригінал (max 300px)</label>
+                        <label style="margin-right: 15px;"><input type="radio" name="image-size" value="large"> Збільшена (400x400)</label>
+                    </div>
+            
+                    <div id="image-display-area">
+                        <img id="gallery-image-display" 
+                             src="" 
+                             alt="Обране зображення" 
+                             style="display: none; max-width: 300px; object-fit: cover; transition: all 0.2s ease-in-out;">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
