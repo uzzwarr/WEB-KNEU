@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // ============================================
-    // ФОРМА 1: ВАЛІДАЦІЯ ТА ОБРОБКА ОПИТУВАННЯ
-    // ============================================
 
     /**
      * Функція валідації форми опитування
@@ -29,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
             group.classList.remove('has-error');
         });
 
-        // 1. Перевірка імені (мінімум 2 символи)
+        // Перевірка імені (мінімум 2 символи)
         const name = document.getElementById('name').value.trim();
         if (name.length < 2) {
             document.getElementById('name').closest('.form-group').classList.add('has-error');
             isValid = false;
         }
 
-        // 2. Перевірка email (правильний формат)
+        // Перевірка email (правильний формат)
         const email = document.getElementById('email').value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
@@ -44,21 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
             isValid = false;
         }
 
-        // 3. Перевірка radio (частота покупок) - обов'язково один вибраний
+        // Перевірка radio (частота покупок) - обов'язково один вибраний
         const frequency = document.querySelector('input[name="frequency"]:checked');
         if (!frequency) {
             document.querySelector('input[name="frequency"]').closest('.form-group').classList.add('has-error');
             isValid = false;
         }
 
-        // 4. Перевірка checkbox (жанри) - хоча б один обраний
+        // Перевірка checkbox (жанри) - хоча б один обраний
         const genres = document.querySelectorAll('input[name="genres"]:checked');
         if (genres.length === 0) {
             document.querySelector('input[name="genres"]').closest('.form-group').classList.add('has-error');
             isValid = false;
         }
 
-        // 5. Перевірка textarea (коментарі) - мінімум 10 символів
+        // Перевірка textarea (коментарі) - мінімум 10 символів
         const comments = document.getElementById('comments').value.trim();
         if (comments.length < 10) {
             document.getElementById('comments').closest('.form-group').classList.add('has-error');
@@ -74,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     surveyForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Виконуємо валідацію
         if (!validateSurveyForm()) {
             // Прокручуємо до першої помилки
             const firstError = document.querySelector('.form-group.has-error');
@@ -115,21 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
 ╚════════════════════════════════════════════╝
 
 👤 Ім'я респондента: ${name}
-📧 Email: ${email}
+    Email: ${email}
 
-📊 ЧАСТОТА ПОКУПОК ВІНІЛУ:
-   ${frequencyTexts[frequency]}
+    ЧАСТОТА ПОКУПОК ВІНІЛУ:
+    ${frequencyTexts[frequency]}
 
-🎵 УЛЮБЛЕНІ МУЗИЧНІ ЖАНРИ:
-   ${genres.map(g => '• ' + genreTexts[g]).join('\n   ')}
+    УЛЮБЛЕНІ МУЗИЧНІ ЖАНРИ:
+    ${genres.map(g => '• ' + genreTexts[g]).join('\n   ')}
 
-💭 ПОБАЖАННЯ ТА КОМЕНТАРІ:
-   ${comments}
+    ПОБАЖАННЯ ТА КОМЕНТАРІ:
+    ${comments}
 
-📅 Дата заповнення: ${new Date().toLocaleString('uk-UA')}
+ Дата заповнення: ${new Date().toLocaleString('uk-UA')}
 
 ═══════════════════════════════════════════════
-Дякуємо за участь в опитуванні! 🎶
+Дякуємо за участь в опитуванні! 
 Ваша думка допоможе нам покращити асортимент.
 `;
 
@@ -173,9 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         surveyForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // ============================================
-    // ФОРМА 2: ВІДПРАВЛЕННЯ НА EMAIL
-    // ============================================
 
     /**
      * Обробка відправки форми зворотного зв'язку
@@ -236,9 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ============================================
-    // ДОДАТКОВІ ФУНКЦІЇ
-    // ============================================
 
     /**
      * Автоматичне видалення помилок при введенні
@@ -297,5 +287,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log('✅ survey.js завантажено успішно!');
+    console.log('survey.js завантажено успішно!');
 });

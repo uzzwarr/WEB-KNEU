@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. ЛОГІКА ДЛЯ ДИНАМІЧНИХ ЦИТАТ (ВАШ КОД) ---
+    //  ЛОГІКА ДЛЯ ДИНАМІЧНИХ ЦИТАТ
 
     const infoArray = [
         "«Борітеся — поборете, вам Бог помагає!» — Тарас Шевченко",
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateQuote, 5000);
 
 
-    // --- 2. ЛОГІКА ДОДАВАННЯ В КОШИК (ВАШ КОД) ---
+    // ЛОГІКА ДОДАВАННЯ В КОШИК 
     
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ (Завдання 1) ---
+    //  ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ 
     const productImage = document.querySelector('.product-page .product-image img');
 
     if (productImage) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ (Завдання 3) ---
+    // ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ 
     const imageChoiceRadios = document.querySelectorAll('input[name="image-choice"]');
     const imageSizeRadios = document.querySelectorAll('input[name="image-size"]');
     
@@ -124,26 +124,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedImage = selectedImageRadio.value;
         const selectedSize = selectedSizeRadio.value;
 
-        // 1. Перевіряємо, чи треба ховати зображення ("повернення до вихідного стану")
+        // Перевіряємо, чи треба ховати зображення ("повернення до вихідного стану")
         if (selectedImage === 'none') {
             imgDisplay.style.display = 'none';
             imgDisplay.src = '';
             return;
         }
 
-        // 2. Якщо зображення обрано, показуємо його і встановлюємо src
+        // Якщо зображення обрано, показуємо його і встановлюємо src
         imgDisplay.style.display = 'block';
         imgDisplay.src = selectedImage;
         imgDisplay.alt = 'Обране зображення альбому';
 
-        // 3. Скидаємо ВСІ стилі/атрибути перед застосуванням нових
+        // Скидаємо ВСІ стилі/атрибути перед застосуванням нових
         imgDisplay.style.maxWidth = '';
         imgDisplay.style.width = '';
         imgDisplay.style.height = '';
         imgDisplay.removeAttribute('width');
         imgDisplay.removeAttribute('height');
 
-        // 4. Застосовуємо розміри залежно від вибору
+        // Застосовуємо розміри залежно від вибору
         switch (selectedSize) {
             case 'small':
                 // Зменшена копія - використовуємо атрибути width і height
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 5. Призначаємо обробник подій 'change' для КОЖНОЇ radio-кнопки
+    // Призначаємо обробник подій 'change' для КОЖНОЇ radio-кнопки
     imageChoiceRadios.forEach(radio => {
         radio.addEventListener('change', () => {
             updateGalleryImage();
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGalleryImage();
 
 
-    // --- 5. ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> (Завдання 5) ---
+    // ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> 
     const pageSelect = document.getElementById('page-select');
 
     if (pageSelect) {

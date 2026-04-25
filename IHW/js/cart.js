@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             subtotal += item.price * item.quantity;
         });
 
-        // Тут можна додати логіку доставки, податків тощо.
         const shipping = 0; // Наразі доставка безкоштовна
         const total = subtotal + shipping;
         

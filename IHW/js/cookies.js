@@ -1,5 +1,3 @@
-// js/cookies.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('accept-cookies');
@@ -24,13 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    // 2. Функція зміни теми (Змінює CSS змінну на льоту)
+    //  Функція зміни теми 
     function changeTheme(color) {
-        // Це магія: ми змінюємо значення --spotify-green для всього сайту
         document.documentElement.style.setProperty('--spotify-green', color);
     }
 
-    // 3. Перевірка при завантаженні
+    // Перевірка при завантаженні
     const savedColor = getCookie('user_theme_color');
     const isConsentGiven = getCookie('cookie_consent');
 
@@ -51,12 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // 4. Обробка кліків на кольорові кнопки (Попередній перегляд)
+    // Обробка кліків на кольорові кнопки (Попередній перегляд)
     colorButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             // Знімаємо активний клас з усіх
             colorButtons.forEach(b => b.classList.remove('active'));
-            // Додаємо активний обраному
             e.target.classList.add('active');
 
             const selectedColor = e.target.dataset.color;
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Обробка кнопки "Зберегти"
+    // Обробка кнопки "Зберегти"
     if (acceptBtn) {
         acceptBtn.addEventListener('click', () => {
             // Знаходимо активний колір (або беремо стандартний зелений)

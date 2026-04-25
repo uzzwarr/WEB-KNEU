@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ (Завдання 1)
+    // ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ 
     const productImage = document.querySelector('.product-page .product-image img');
 
     if (productImage) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ (Завдання 3)
+    // ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ 
     const imageChoiceRadios = document.querySelectorAll('input[name="image-choice"]');
     const imageSizeRadios = document.querySelectorAll('input[name="image-size"]');
     
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Масив розмірів для циклічної зміни при кліку
     const sizes = ['small', 'original', 'large'];
-    let currentSizeIndex = 1; // Починаємо з 'original'
+    let currentSizeIndex = 1; 
 
     // Функція, яка оновлює зображення на основі ОБИДВОХ виборів
     function updateGalleryImage() {
@@ -124,26 +124,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedImage = selectedImageRadio.value;
         const selectedSize = selectedSizeRadio.value;
 
-        // 1. Перевіряємо, чи треба ховати зображення ("повернення до вихідного стану")
+        // Перевіряємо, чи треба ховати зображення ("повернення до вихідного стану")
         if (selectedImage === 'none') {
             imgDisplay.style.display = 'none';
             imgDisplay.src = '';
             return;
         }
 
-        // 2. Якщо зображення обрано, показуємо його і встановлюємо src
+        // Якщо зображення обрано, показуємо його і встановлюємо src
         imgDisplay.style.display = 'block';
         imgDisplay.src = selectedImage;
         imgDisplay.alt = 'Обране зображення альбому';
 
-        // 3. Скидаємо ВСІ стилі/атрибути перед застосуванням нових
+
         imgDisplay.style.maxWidth = '';
         imgDisplay.style.width = '';
         imgDisplay.style.height = '';
         imgDisplay.removeAttribute('width');
         imgDisplay.removeAttribute('height');
 
-        // 4. Застосовуємо розміри залежно від вибору
+        // Застосовуємо розміри залежно від вибору
         switch (selectedSize) {
             case 'small':
                 // Зменшена копія - використовуємо атрибути width і height
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 5. Призначаємо обробник подій 'change' для КОЖНОЇ radio-кнопки
+    // Oбробник подій 'change' для КОЖНОЇ radio-кнопки
     imageChoiceRadios.forEach(radio => {
         radio.addEventListener('change', () => {
             updateGalleryImage();
@@ -192,14 +192,13 @@ document.addEventListener('DOMContentLoaded', () => {
         imgDisplay.style.transition = 'all 0.3s ease-in-out';
         
         imgDisplay.addEventListener('click', () => {
-            // Перевіряємо, чи зображення видиме
+            // чи зображення видиме
             if (imgDisplay.style.display === 'none') return;
 
             // Переходимо до наступного розміру в циклі
             currentSizeIndex = (currentSizeIndex + 1) % sizes.length;
             const newSize = sizes[currentSizeIndex];
 
-            // Знаходимо відповідну radio-кнопку і активуємо її
             const radioToSelect = document.querySelector(`input[name="image-size"][value="${newSize}"]`);
             if (radioToSelect) {
                 radioToSelect.checked = true;
@@ -227,7 +226,7 @@ if (cookies.userName) {
     updateGalleryImage();
 
 
-    // ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> (Завдання 5)
+    // ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> 
     const pageSelect = document.getElementById('page-select');
 
     if (pageSelect) {
