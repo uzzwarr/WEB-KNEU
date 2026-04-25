@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. ЛОГІКА ДЛЯ ДИНАМІЧНИХ ЦИТАТ (ВАШ КОД) ---
+    //  ЛОГІКА ДЛЯ ДИНАМІЧНИХ ЦИТАТ
 
     const infoArray = [
         "«Борітеся — поборете, вам Бог помагає!» — Тарас Шевченко",
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateQuote, 5000);
 
 
-    // --- 2. ЛОГІКА ДОДАВАННЯ В КОШИК (ВАШ КОД) ---
+    // ЛОГІКА ДОДАВАННЯ В КОШИК 
     
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ (Завдання 1) ---
+    // ЛОГІКА ЗБІЛЬШЕННЯ ЗОБРАЖЕННЯ (Завдання 1)
     const productImage = document.querySelector('.product-page .product-image img');
 
     if (productImage) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ (Завдання 3) ---
+    // ЛОГІКА ГАЛЕРЕЇ ЗОБРАЖЕНЬ З RADIO-КНОПКАМИ (Завдання 3)
     const imageChoiceRadios = document.querySelectorAll('input[name="image-choice"]');
     const imageSizeRadios = document.querySelectorAll('input[name="image-size"]');
     
@@ -227,7 +227,7 @@ if (cookies.userName) {
     updateGalleryImage();
 
 
-    // --- 5. ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> (Завдання 5) ---
+    // ЛОГІКА НАВІГАЦІЇ ЧЕРЕЗ <SELECT> (Завдання 5)
     const pageSelect = document.getElementById('page-select');
 
     if (pageSelect) {
